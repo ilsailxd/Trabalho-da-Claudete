@@ -1,0 +1,80 @@
+console.log("CAMPUSFLOW: ANÁLISE COMPLETA DO DIA REAL\n");
+
+function formatHora(totalMin) {
+  const hh = Math.floor(totalMin / 60);
+  const mm = totalMin % 60;
+  return `${hh.toString().padStart(2, "0")}:${mm.toString().padStart(2, "0")}`;
+}
+
+function verificarSetor(opcao, total) {
+  switch (opcao) {
+    case 1:
+      console.log(`📄 SECRETARIA (${formatHora(total)})`);
+      if (
+        (total >= 420 && total <= 435) ||
+        (total >= 1095 && total <= 1110) ||
+        (total >= 795 && total <= 810) ||
+        (total >= 1080 && total <= 1095)
+      ) {
+        console.log("🟡 Levemente cheio. Planeje com antecedência.\n");
+      } else {
+        console.log("✅ Fluxo normal. Atendimento tranquilo.\n");
+      }
+      break;
+
+    case 2:
+      console.log(
+        `💳 PAGAMENTO DO CARTÃO PARA RESTAURANTE (${formatHora(total)})`,
+      );
+      if ((total >= 720 && total <= 810) || (total >= 1080 && total <= 1140)) {
+        console.log(
+          "🔴 Cheio! Recomenda-se planejamento ou pagamento antecipado.\n",
+        );
+      } else {
+        console.log("✅ Fluxo normal.\n");
+      }
+      break;
+
+    case 3:
+      console.log(`🍔 LANCHONETE (${formatHora(total)})`);
+      if (
+        (total >= 570 && total <= 585) ||
+        (total >= 630 && total <= 645) ||
+        (total >= 975 && total <= 990) ||
+        (total >= 1265 && total <= 1280)
+      ) {
+        console.log("🔴 Muito cheio no intervalo! Planeje seu lanche.\n");
+      } else {
+        console.log("✅ Fluxo normal.\n");
+      }
+      break;
+
+    case 4:
+      console.log(`🍽️  RESTAURANTE/BÁSICA (${formatHora(total)})`);
+      if (
+        (total >= 720 && total <= 810) ||
+        (total >= 1080 && total <= 1140) ||
+        (total >= 690 && total <= 705) ||
+        (total >= 1080 && total <= 1110)
+      ) {
+        console.log("🔴 Cheio! Alto risco de filas.\n");
+      } else {
+        console.log("✅ Fluxo tranquilo.\n");
+      }
+      break;
+  }
+}
+
+for (let minutos = 420; minutos <= 1370; minutos += 15) {
+  console.log("\n====================================");
+  console.log(`🕒 HORÁRIO: ${formatHora(minutos)}`);
+  console.log("====================================");
+
+  for (let setor = 1; setor <= 4; setor++) {
+    verificarSetor(setor, minutos);
+  }
+}
+
+console.log(
+  "📌 CAMPUSFLOW: Fim da análise completa do dia. Siga as recomendações e evite filas e atrasos!",
+);
