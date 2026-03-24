@@ -1,8 +1,7 @@
-
 console.log("CAMPUSFLOW: ANÁLISE COMPLETA DO DIA REAL\n");
 const horarios = [
-420, 435, 795, 810, 1080, 1095, 1110, 1140, 1265, 1280, 570, 585, 630, 645, 975, 990, 690, 705
-];
+420, 435, 795, 810, 1080, 1095, 1110, 1140, 1265, 1280, 570, 585, 630, 645, 975, 990, 690, 705 ];
+
 horarios.forEach((minutos) => {
 const hh = Math.floor(minutos / 60);
 const mm = minutos % 60;
@@ -11,6 +10,7 @@ console.log("\n====================================");
 console.log(` HORÁRIO: 🕒 ${horaFormatada}`);
 console.log("====================================");
 console.log(` SECRETARIA ( 📄 ${horaFormatada})`);
+
 if (
 (minutos >= 420 && minutos <= 435) ||
 (minutos >= 1095 && minutos <= 1110) ||
