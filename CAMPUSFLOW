@@ -1,0 +1,56 @@
+
+console.log("CAMPUSFLOW: ANÁLISE COMPLETA DO DIA REAL\n");
+const horarios = [
+420, 435, 795, 810, 1080, 1095, 1110, 1140, 1265, 1280, 570, 585, 630, 645, 975, 990, 690, 705
+];
+horarios.forEach((minutos) => {
+const hh = Math.floor(minutos / 60);
+const mm = minutos % 60;
+const horaFormatada = `${hh.toString().padStart(2, "0")}:${mm.toString().padStart(2, "0")}`;
+console.log("\n====================================");
+console.log(` HORÁRIO: 🕒 ${horaFormatada}`);
+console.log("====================================");
+console.log(` SECRETARIA ( 📄 ${horaFormatada})`);
+if (
+(minutos >= 420 && minutos <= 435) ||
+(minutos >= 1095 && minutos <= 1110) ||
+(minutos >= 795 && minutos <= 810) ||
+(minutos >= 1080 && minutos <= 1095)
+) {
+console.log(" Levemente cheio. Planeje com antecedência. 🟡 \n");
+} else {
+console.log(" Fluxo normal. Atendimento tranquilo. ✅ \n");
+}
+console.log(` PAGAMENTO DO CARTÃO PARA RESTAURANTE ( 💳 ${horaFormatada})`);
+if ((minutos >= 720 && minutos <= 810) || (minutos >= 1080 && minutos <= 1140)) {
+console.log(" Cheio! Recomenda-se planejamento ou pagamento antecipado. 🔴 \n");
+} else {
+console.log(" Fluxo normal. ✅ \n");
+}
+console.log(` LANCHONETE ( 🍔 ${horaFormatada})`);
+if (
+(minutos >= 570 && minutos <= 585) ||
+(minutos >= 630 && minutos <= 645) ||
+(minutos >= 975 && minutos <= 990) ||
+(minutos >= 1265 && minutos <= 1280)
+) {
+console.log(" Muito cheio no intervalo! Planeje seu lanche. 🔴 \n");
+} else {
+console.log(" Fluxo normal. ✅ \n");
+}
+console.log(` RESTAURANTE/BÁSICA ( 🍽️ ${horaFormatada})`);
+if (
+(minutos >= 720 && minutos <= 810) ||
+(minutos >= 1080 && minutos <= 1140) ||
+(minutos >= 690 && minutos <= 705) ||
+(minutos >= 1080 && minutos <= 1110)
+) {
+console.log(" Cheio! Alto risco de filas. 🔴 \n");
+} else {
+console.log(" Fluxo tranquilo. ✅ \n");
+}
+});
+console.log(
+" CAMPUSFLOW: Fim da análise completa do dia. Siga as recomendações e evite filas e 📌
+atrasos!",
+);
